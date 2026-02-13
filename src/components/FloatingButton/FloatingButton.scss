@@ -23,8 +23,76 @@
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   }
+}
 
-  svg {
-    color: #5a4fd1;
+.floating-button__card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.floating-button__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+  line-height: 1;
+  padding: 4px;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.floating-button__text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding-right: 20px;
+}
+
+.floating-button__form {
+  display: flex;
+  gap: 10px;
+}
+
+.floating-button__input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+
+  &:focus {
+    border-color: #5a4fd1;
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.floating-button__submit {
+  padding: 12px 20px;
+  background: #5a4fd1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background: #4a3fc1;
   }
 }
