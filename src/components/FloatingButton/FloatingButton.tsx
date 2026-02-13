@@ -34,12 +34,18 @@ function FloatingButton() {
         (loc) =>
           loc.zip.startsWith(query) ||
           loc.city.toLowerCase().includes(query.toLowerCase())
-      ).slice(0, 5)
+      )
     : [];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
     setShowDropdown(e.target.value.length > 0);
+  };
+
+  const handleClose = () => {
+    setIsExpanded(false);
+    setQuery("");
+    setShowDropdown(false);
   };
 
   const handleSelect = (location: Location) => {
@@ -54,59 +60,60 @@ function FloatingButton() {
     return null;
   }
 
-  if (isExpanded) {
-    return (
-      <div className="floating-button floating-button--expanded">
-        <div className="floating-button__card">
-          <button
-            className="floating-button__close"
-            onClick={() => setIsExpanded(false)}
-          >
-            ×
-          </button>
-          <p className="floating-button__text">
-            Let us know your postal code so we can get you best cleaning
-            professionals in your area.
-          </p>
-          <div className="floating-button__form">
-            <div className="floating-button__input-wrapper">
-              <input
-                type="text"
-                placeholder="Your postal code or city"
-                className="floating-button__input"
-                value={query}
-                onChange={handleInputChange}
-              />
-              {showDropdown && filteredLocations.length > 0 && (
-                <ul className="floating-button__dropdown">
-                  {filteredLocations.map((loc) => (
-                    <li
-                      key={loc.zip}
-                      className="floating-button__dropdown-item"
-                      onClick={() => handleSelect(loc)}
-                    >
-                      {loc.zip} {!loc.hideCityName && loc.city}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-            <button className="floating-button__submit">Lets go!</button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="floating-button">
-      <button
-        className="floating-button__trigger"
-        onClick={() => setIsExpanded(true)}
-      >
+    <div className={`floating-button ${isExpanded ? "floating-button--expanded" : ""}`}>
+      {/* Collapsed content */}
+      <div className="floating-button__collapsed">
         <span>Check availabilities</span>
         <img src="/calendar-schedule-clock-time.svg" alt="" width="18" height="18" />
-      </button>
+      </div>
+
+      {/* Expanded content */}
+      <div className="floating-button__expanded">
+        <button className="floating-button__close" onClick={handleClose}>
+          ×
+        </button>
+        <p className="floating-button__text">
+          Let us know your postal code so we can get you best cleaning
+          professionals in your area.
+        </p>
+        <div className="floating-button__form">
+          <div className="floating-button__input-wrapper">
+            <input
+              type="text"
+              placeholder="Your postal code or city"
+              className="floating-button__input"
+              value={query}
+              onChange={handleInputChange}
+              onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
+              onFocus={() => query.length > 0 && setShowDropdown(true)}
+            />
+            {showDropdown && filteredLocations.length > 0 && (
+              <ul className="floating-button__dropdown">
+                {filteredLocations.map((loc) => (
+                  <li
+                    key={loc.zip}
+                    className="floating-button__dropdown-item"
+                    onClick={() => handleSelect(loc)}
+                  >
+                    {loc.zip} {!loc.hideCityName && loc.city}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <button className="floating-button__submit">Lets go!</button>
+        </div>
+      </div>
+
+      {/* Click area for collapsed state */}
+      {!isExpanded && (
+        <button 
+          className="floating-button__trigger" 
+          onClick={() => setIsExpanded(true)}
+          aria-label="Check availabilities"
+        />
+      )}
     </div>
   );
 }
