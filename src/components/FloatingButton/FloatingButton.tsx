@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./FloatingButton.scss";
 import locationsData from "../../data/locations.json";
 
@@ -11,9 +11,23 @@ interface Location {
 const locations: Location[] = locationsData;
 
 function FloatingButton() {
+  const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const threshold = viewportHeight * 0.9;
+
+      setIsVisible(scrollPosition >= threshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const filteredLocations = query.length > 0
     ? locations.filter(
@@ -32,8 +46,13 @@ function FloatingButton() {
     console.log("Selected location:", location);
     setShowDropdown(false);
     setIsExpanded(false);
+    setIsVisible(false);
     setQuery("");
   };
+
+  if (!isVisible) {
+    return null;
+  }
 
   if (isExpanded) {
     return (
