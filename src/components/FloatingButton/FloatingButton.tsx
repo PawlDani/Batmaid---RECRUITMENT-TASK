@@ -9,19 +9,38 @@ function FloatingButton() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
+
+  // Reset to pill after hide animation completes
+  useEffect(() => {
+    if (!isVisible && isExpanded) {
+      const timer = setTimeout(() => {
+        setIsExpanded(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible, isExpanded]);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isDismissed) return;
+      
       const scrollPosition = window.scrollY;
       const viewportHeight = window.innerHeight;
       const threshold = viewportHeight * 0.9;
+      const shouldBeVisible = scrollPosition >= threshold;
 
-      setIsVisible(scrollPosition >= threshold);
+      if (shouldBeVisible && !isVisible) {
+        setIsVisible(true);
+      } else if (!shouldBeVisible && isVisible) {
+        setShowDropdown(false);
+        setIsVisible(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isVisible, isDismissed]);
 
   const filteredLocations = query.length > 0
     ? locations.filter(
@@ -38,7 +57,6 @@ function FloatingButton() {
 
   const handleClose = () => {
     setIsExpanded(false);
-    setQuery("");
     setShowDropdown(false);
   };
 
@@ -46,16 +64,16 @@ function FloatingButton() {
     console.log("Selected location:", location);
     setShowDropdown(false);
     setIsExpanded(false);
+    setIsDismissed(true);
     setIsVisible(false);
     setQuery("");
   };
 
-  if (!isVisible) {
-    return null;
-  }
-
+  // Always render, let CSS handle visibility
   return (
-    <div className={`floating-button ${isExpanded ? "floating-button--expanded" : ""}`}>
+    <div 
+      className={`floating-button ${isExpanded ? "floating-button--expanded" : ""} ${isVisible ? "floating-button--visible" : ""}`}
+    >
       {/* Collapsed content */}
       <div className="floating-button__collapsed">
         <span>Check availabilities</span>
@@ -65,7 +83,7 @@ function FloatingButton() {
       {/* Expanded content */}
       <div className="floating-button__expanded">
         <button className="floating-button__close" onClick={handleClose}>
-          ×
+          <img src="/Close.svg" alt="Close" width="16" height="16" />
         </button>
         <p className="floating-button__text">
           Let us know your postal code so we can get you best cleaning
