@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 import "./FloatingButton.scss";
-import locationsData from "../../data/locations.json";
-
-interface Location {
-  zip: string;
-  city: string;
-  hideCityName: boolean;
-}
-
-const locations: Location[] = locationsData;
+import { useLocations } from "../../context/LocationContext";
+import type { Location } from "../../services/locationService";
 
 function FloatingButton() {
+  const { locations } = useLocations();
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [query, setQuery] = useState("");
