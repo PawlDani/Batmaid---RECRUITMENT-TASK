@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState, useEffect } from "react";
 import "./App.scss";
 
-const FloatingButton = lazy(() => import("./components/FloatingButton"));
+const FloatingButton = lazy(() => import("./components/FloatingButton/FloatingButton"));
 
 function App() {
   const [shouldLoadButton, setShouldLoadButton] = useState(false);
