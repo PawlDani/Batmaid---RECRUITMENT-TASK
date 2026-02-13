@@ -1,4 +1,5 @@
 import "./App.scss";
+import FloatingButton from "./components/FloatingButton";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         <h1>Batmaid</h1>
         <p>Scroll down to see the floating button</p>
       </div>
+      <FloatingButton />
     </div>
   );
 }
