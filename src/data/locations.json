@@ -1,0 +1,477 @@
+[
+    {
+        "zip": "1000",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1001",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1003",
+        "city": "Lausanne",
+        "hideCityName": true
+    },
+    {
+        "zip": "1004",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1005",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1006",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1007",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1008",
+        "city": "Prilly",
+        "hideCityName": false
+    },
+    {
+        "zip": "1009",
+        "city": "Pully",
+        "hideCityName": false
+    },
+    {
+        "zip": "1010",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1011",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1012",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1015",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1018",
+        "city": "Lausanne",
+        "hideCityName": false
+    },
+    {
+        "zip": "1020",
+        "city": "Renens",
+        "hideCityName": false
+    },
+    {
+        "zip": "2000",
+        "city": "Neuchâtel",
+        "hideCityName": false
+    },
+    {
+        "zip": "2100",
+        "city": "La Chaux-de-Fonds",
+        "hideCityName": false
+    },
+    {
+        "zip": "2200",
+        "city": "Valangin",
+        "hideCityName": false
+    },
+    {
+        "zip": "2300",
+        "city": "La Chaux-de-Fonds",
+        "hideCityName": false
+    },
+    {
+        "zip": "2400",
+        "city": "Le Locle",
+        "hideCityName": false
+    },
+    {
+        "zip": "2500",
+        "city": "Biel/Bienne",
+        "hideCityName": false
+    },
+    {
+        "zip": "2600",
+        "city": "La Heutte",
+        "hideCityName": false
+    },
+    {
+        "zip": "2700",
+        "city": "La Chaux-de-Fonds",
+        "hideCityName": false
+    },
+    {
+        "zip": "2800",
+        "city": "Delémont",
+        "hideCityName": false
+    },
+    {
+        "zip": "2900",
+        "city": "Porrentruy",
+        "hideCityName": true
+    },
+    {
+        "zip": "3000",
+        "city": "Bern",
+        "hideCityName": false
+    },
+    {
+        "zip": "3100",
+        "city": "Bern",
+        "hideCityName": false
+    },
+    {
+        "zip": "3200",
+        "city": "Avenches",
+        "hideCityName": false
+    },
+    {
+        "zip": "3300",
+        "city": "Burgdorf",
+        "hideCityName": false
+    },
+    {
+        "zip": "3400",
+        "city": "Burgdorf",
+        "hideCityName": false
+    },
+    {
+        "zip": "3500",
+        "city": "Grosshöchstetten",
+        "hideCityName": false
+    },
+    {
+        "zip": "3600",
+        "city": "Thun",
+        "hideCityName": false
+    },
+    {
+        "zip": "3700",
+        "city": "Spiez",
+        "hideCityName": false
+    },
+    {
+        "zip": "3800",
+        "city": "Interlaken",
+        "hideCityName": false
+    },
+    {
+        "zip": "3900",
+        "city": "Brig",
+        "hideCityName": false
+    },
+    {
+        "zip": "4000",
+        "city": "Basel",
+        "hideCityName": false
+    },
+    {
+        "zip": "4100",
+        "city": "Birsfelden",
+        "hideCityName": true
+    },
+    {
+        "zip": "4200",
+        "city": "Grellingen",
+        "hideCityName": true
+    },
+    {
+        "zip": "4300",
+        "city": "Kaiseraugst",
+        "hideCityName": false
+    },
+    {
+        "zip": "4400",
+        "city": "Liestal",
+        "hideCityName": false
+    },
+    {
+        "zip": "4500",
+        "city": "Solothurn",
+        "hideCityName": false
+    },
+    {
+        "zip": "4600",
+        "city": "Olten",
+        "hideCityName": false
+    },
+    {
+        "zip": "4700",
+        "city": "Balsthal",
+        "hideCityName": false
+    },
+    {
+        "zip": "4800",
+        "city": "Zofingen",
+        "hideCityName": false
+    },
+    {
+        "zip": "4900",
+        "city": "Langenthal",
+        "hideCityName": false
+    },
+    {
+        "zip": "5000",
+        "city": "Aarau",
+        "hideCityName": false
+    },
+    {
+        "zip": "5100",
+        "city": "Aarau",
+        "hideCityName": false
+    },
+    {
+        "zip": "5200",
+        "city": "Brugg",
+        "hideCityName": false
+    },
+    {
+        "zip": "5300",
+        "city": "Turgi",
+        "hideCityName": false
+    },
+    {
+        "zip": "5400",
+        "city": "Baden",
+        "hideCityName": false
+    },
+    {
+        "zip": "5500",
+        "city": "Brugg",
+        "hideCityName": false
+    },
+    {
+        "zip": "5600",
+        "city": "Lenzburg",
+        "hideCityName": false
+    },
+    {
+        "zip": "5700",
+        "city": "Seon",
+        "hideCityName": false
+    },
+    {
+        "zip": "5800",
+        "city": "Lucens",
+        "hideCityName": false
+    },
+    {
+        "zip": "5900",
+        "city": "Payerne",
+        "hideCityName": false
+    },
+    {
+        "zip": "6000",
+        "city": "Luzern",
+        "hideCityName": false
+    },
+    {
+        "zip": "6100",
+        "city": "Wolhusen",
+        "hideCityName": false
+    },
+    {
+        "zip": "6200",
+        "city": "Sursee",
+        "hideCityName": false
+    },
+    {
+        "zip": "6300",
+        "city": "Zug",
+        "hideCityName": false
+    },
+    {
+        "zip": "6400",
+        "city": "Küssnacht (SZ)",
+        "hideCityName": false
+    },
+    {
+        "zip": "6500",
+        "city": "Bellinzona",
+        "hideCityName": false
+    },
+    {
+        "zip": "6600",
+        "city": "Locarno",
+        "hideCityName": false
+    },
+    {
+        "zip": "6700",
+        "city": "Biasca",
+        "hideCityName": false
+    },
+    {
+        "zip": "6800",
+        "city": "Chiasso",
+        "hideCityName": false
+    },
+    {
+        "zip": "6900",
+        "city": "Lugano",
+        "hideCityName": false
+    },
+    {
+        "zip": "7000",
+        "city": "Chur",
+        "hideCityName": false
+    },
+    {
+        "zip": "7100",
+        "city": "Domat/Ems",
+        "hideCityName": false
+    },
+    {
+        "zip": "7200",
+        "city": "Samedan",
+        "hideCityName": false
+    },
+    {
+        "zip": "7300",
+        "city": "Davos",
+        "hideCityName": false
+    },
+    {
+        "zip": "7400",
+        "city": "Thusis",
+        "hideCityName": false
+    },
+    {
+        "zip": "7500",
+        "city": "St. Moritz",
+        "hideCityName": false
+    },
+    {
+        "zip": "7600",
+        "city": "Pontresina",
+        "hideCityName": false
+    },
+    {
+        "zip": "7700",
+        "city": "Lavin",
+        "hideCityName": false
+    },
+    {
+        "zip": "7800",
+        "city": "Davos",
+        "hideCityName": false
+    },
+    {
+        "zip": "7900",
+        "city": "Scuol",
+        "hideCityName": false
+    },
+    {
+        "zip": "8000",
+        "city": "Zürich",
+        "hideCityName": false
+    },
+    {
+        "zip": "8100",
+        "city": "Regensdorf",
+        "hideCityName": false
+    },
+    {
+        "zip": "8200",
+        "city": "Schaffhausen",
+        "hideCityName": false
+    },
+    {
+        "zip": "8300",
+        "city": "Kloten",
+        "hideCityName": false
+    },
+    {
+        "zip": "8400",
+        "city": "Winterthur",
+        "hideCityName": false
+    },
+    {
+        "zip": "8500",
+        "city": "Frauenfeld",
+        "hideCityName": false
+    },
+    {
+        "zip": "8600",
+        "city": "Dübendorf",
+        "hideCityName": false
+    },
+    {
+        "zip": "8700",
+        "city": "Küsnacht (ZH)",
+        "hideCityName": false
+    },
+    {
+        "zip": "8800",
+        "city": "Thalwil",
+        "hideCityName": false
+    },
+    {
+        "zip": "8900",
+        "city": "Urdorf",
+        "hideCityName": false
+    },
+    {
+        "zip": "9000",
+        "city": "St. Gallen",
+        "hideCityName": false
+    },
+    {
+        "zip": "9100",
+        "city": "Herisau",
+        "hideCityName": false
+    },
+    {
+        "zip": "9200",
+        "city": "Gossau (SG)",
+        "hideCityName": false
+    },
+    {
+        "zip": "9300",
+        "city": "Wegelin",
+        "hideCityName": false
+    },
+    {
+        "zip": "9400",
+        "city": "Rorschach",
+        "hideCityName": false
+    },
+    {
+        "zip": "9500",
+        "city": "Wil (SG)",
+        "hideCityName": false
+    },
+    {
+        "zip": "9600",
+        "city": "Lenk",
+        "hideCityName": false
+    },
+    {
+        "zip": "9700",
+        "city": "Dietikon",
+        "hideCityName": false
+    },
+    {
+        "zip": "9800",
+        "city": "Mels",
+        "hideCityName": false
+    },
+    {
+        "zip": "9900",
+        "city": "Andelfingen",
+        "hideCityName": false
+    }
+]

@@ -1,8 +1,39 @@
 import { useState } from "react";
 import "./FloatingButton.scss";
+import locationsData from "../../data/locations.json";
+
+interface Location {
+  zip: string;
+  city: string;
+  hideCityName: boolean;
+}
+
+const locations: Location[] = locationsData;
 
 function FloatingButton() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [query, setQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const filteredLocations = query.length > 0
+    ? locations.filter(
+        (loc) =>
+          loc.zip.startsWith(query) ||
+          loc.city.toLowerCase().includes(query.toLowerCase())
+      ).slice(0, 5)
+    : [];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    setShowDropdown(e.target.value.length > 0);
+  };
+
+  const handleSelect = (location: Location) => {
+    console.log("Selected location:", location);
+    setShowDropdown(false);
+    setIsExpanded(false);
+    setQuery("");
+  };
 
   if (isExpanded) {
     return (
@@ -19,11 +50,28 @@ function FloatingButton() {
             professionals in your area.
           </p>
           <div className="floating-button__form">
-            <input
-              type="text"
-              placeholder="Your postal code or city"
-              className="floating-button__input"
-            />
+            <div className="floating-button__input-wrapper">
+              <input
+                type="text"
+                placeholder="Your postal code or city"
+                className="floating-button__input"
+                value={query}
+                onChange={handleInputChange}
+              />
+              {showDropdown && filteredLocations.length > 0 && (
+                <ul className="floating-button__dropdown">
+                  {filteredLocations.map((loc) => (
+                    <li
+                      key={loc.zip}
+                      className="floating-button__dropdown-item"
+                      onClick={() => handleSelect(loc)}
+                    >
+                      {loc.zip} {!loc.hideCityName && loc.city}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <button className="floating-button__submit">Lets go!</button>
           </div>
         </div>
