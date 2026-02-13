@@ -194,6 +194,36 @@ $transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
+.floating-button__spinner {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ddd;
+  border-top-color: $primary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.floating-button__error {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #e53935;
+  pointer-events: none;
+}
+
 .floating-button__dropdown {
   position: absolute;
   bottom: 100%;
@@ -232,6 +262,13 @@ $transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     background: #f5f5f5;
   }
+}
+
+.floating-button__dropdown-empty {
+  padding: 12px 16px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: $text-color;
 }
 
 .floating-button__submit {

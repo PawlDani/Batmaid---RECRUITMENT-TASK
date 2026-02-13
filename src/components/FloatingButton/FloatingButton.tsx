@@ -4,12 +4,13 @@ import { useLocations } from "../../context/LocationContext";
 import type { Location } from "../../services/locationService";
 
 function FloatingButton() {
-  const { locations } = useLocations();
+  const { locations, isLoading } = useLocations();
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const [error, setError] = useState("");
 
   // Reset to pill after hide animation completes
   useEffect(() => {
@@ -22,7 +23,7 @@ function FloatingButton() {
   }, [isVisible, isExpanded]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const checkVisibility = () => {
       if (isDismissed) return;
       
       const scrollPosition = window.scrollY;
@@ -38,8 +39,11 @@ function FloatingButton() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Check on mount
+    checkVisibility();
+
+    window.addEventListener("scroll", checkVisibility);
+    return () => window.removeEventListener("scroll", checkVisibility);
   }, [isVisible, isDismissed]);
 
   const filteredLocations = query.length > 0
@@ -53,6 +57,13 @@ function FloatingButton() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
     setShowDropdown(e.target.value.length > 0);
+    if (error) setError("");
+  };
+
+  const handleSubmit = () => {
+    if (query.trim().length === 0) {
+      setError("Please enter a postal code or city");
+    }
   };
 
   const handleClose = () => {
@@ -93,28 +104,36 @@ function FloatingButton() {
           <div className="floating-button__input-wrapper">
             <input
               type="text"
-              placeholder="Your postal code or city"
+              placeholder={error ? "" : "Your postal code or city"}
               className="floating-button__input"
               value={query}
               onChange={handleInputChange}
               onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
               onFocus={() => query.length > 0 && setShowDropdown(true)}
             />
-            {showDropdown && filteredLocations.length > 0 && (
+            {isLoading && query.length > 0 && <span className="floating-button__spinner" />}
+            {showDropdown && !isLoading && (
               <ul className="floating-button__dropdown">
-                {filteredLocations.map((loc) => (
-                  <li
-                    key={loc.zip}
-                    className="floating-button__dropdown-item"
-                    onClick={() => handleSelect(loc)}
-                  >
-                    {loc.zip} {!loc.hideCityName && loc.city}
+                {filteredLocations.length > 0 ? (
+                  filteredLocations.map((loc) => (
+                    <li
+                      key={loc.zip}
+                      className="floating-button__dropdown-item"
+                      onClick={() => handleSelect(loc)}
+                    >
+                      {loc.zip} {!loc.hideCityName && loc.city}
+                    </li>
+                  ))
+                ) : (
+                  <li className="floating-button__dropdown-empty">
+                    No locations found
                   </li>
-                ))}
+                )}
               </ul>
             )}
+            {error && <span className="floating-button__error">{error}</span>}
           </div>
-          <button className="floating-button__submit">Lets go!</button>
+          <button className="floating-button__submit" onClick={handleSubmit}>Lets go!</button>
         </div>
       </div>
 

@@ -11,7 +11,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function fetchLocations(): Promise<Location[]> {
   // Simulate network request
-  await delay(500);
+  await delay(3000);
 
   // In a real app, this would be: 
   // const response = await fetch('/api/locations');
