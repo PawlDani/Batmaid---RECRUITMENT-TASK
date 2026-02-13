@@ -1,11 +1,14 @@
-import './App.scss'
+import "./App.scss";
 
 function App() {
   return (
     <div className="app">
-      <h1>Batmaid</h1>
+      <div className="page-content">
+        <h1>Batmaid</h1>
+        <p>Scroll down to see the floating button</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
